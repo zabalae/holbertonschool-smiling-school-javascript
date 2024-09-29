@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>holberton-smiling</title>
+    <title>holberton-smiling - XML Pricing</title>
     <!-- Custom and Font Styles  -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="font-style.css" />
@@ -25,22 +25,24 @@
       crossorigin="anonymous"
     ></script>
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7HfQ39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
+    <!-- XML Scripts -->
+    <script src="xml-scripts.js"></script>
   </head>
   <body class="body">
     <header class="header pricing-header">
@@ -61,7 +63,7 @@
           </button>
           <a
             class="navbar-brand mx-auto d-flex flex-column flex-sm-row align-items-center mt-3"
-            href="homepage.html"
+            href="xml-homepage.html"
           >
             <img
               src="images/smile_off.png"
@@ -79,12 +81,12 @@
           <div class="collapse navbar-collapse text-center mt-3" id="navbarNav">
             <ul class="navbar-nav ml-auto font-weight-bold">
               <li class="nav-item">
-                <a class="nav-link text-white px-1" href="courses.html"
+                <a class="nav-link text-white px-1" href="xml-courses.html"
                   >COURSES</a
                 >
               </li>
               <li class="nav-item px-0 px-sm-5 py-2 py-sm-0">
-                <a class="nav-link text-white px-1" href="pricing.html"
+                <a class="nav-link text-white px-1" href="xml-pricing.html"
                   >PRICING</a
                 >
               </li>
@@ -222,16 +224,15 @@
     <main class="main">
       <section class="quotes section d-flex align-items-center">
         <div class="container">
-          <div id="quotes-carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" id="quotes-carousel-inner">
-              <!-- Loader while fetching quotes -->
-              <div class="loader text-center">
-                <span>Loading...</span>
-              </div>
-            </div>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner"></div>
             <a
               class="carousel-control-prev arrow-left"
-              href="#quotes-carousel"
+              href="#carouselExampleControls"
               role="button"
               data-slide="prev"
             >
@@ -244,7 +245,7 @@
             </a>
             <a
               class="carousel-control-next arrow-right"
-              href="#quotes-carousel"
+              href="#carouselExampleControls"
               role="button"
               data-slide="next"
             >
@@ -258,7 +259,6 @@
           </div>
         </div>
       </section>
-
       <section class="faq section">
         <div class="container">
           <header class="section-header">
@@ -396,43 +396,5 @@
         </div>
       </div>
     </footer>
-    <script>
-      $(document).ready(function () {
-        // Quotes Carousel
-        const quotesLoader = $('<div class="loader text-center">Loading...</div>');
-        $("#quotes-carousel-inner").append(quotesLoader);
-
-        $.ajax({
-          url: "https://smileschool-api.hbtn.info/quotes",
-          method: "GET",
-          success: function (data) {
-            quotesLoader.remove();
-            data.forEach((quote, index) => {
-              const itemClass = index === 0 ? "carousel-item active" : "carousel-item";
-              const quoteCard = `
-                <div class="${itemClass}">
-                  <div class="row mx-auto align-items-center">
-                    <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-                      <img src="${quote.pic_url}" class="d-block align-self-center rounded-circle" alt="${quote.name}" />
-                    </div>
-                    <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-                      <div class="quote-text">
-                        <p class="text-white">« ${quote.text} »</p>
-                        <h4 class="text-white font-weight-bold">${quote.name}</h4>
-                        <span class="text-white">${quote.title}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              `;
-              $("#quotes-carousel-inner").append(quoteCard);
-            });
-          },
-          error: function () {
-            quotesLoader.text("Failed to load quotes.");
-          },
-        });
-      });
-    </script>
   </body>
 </html>

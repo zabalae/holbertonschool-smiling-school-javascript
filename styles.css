@@ -40,6 +40,120 @@
   opacity: var(--opacity-value);
 }
 
+/* Mobile Styles (max-width: 575px) */
+@media screen and (max-width: 575px) {
+  /* Adjust Typography */
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* Adjust Button Sizes */
+  .btn {
+    width: 140px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  /* Stacking Layouts */
+  .pros .col-6 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Image Resizing */
+  .hero img {
+    width: 80%;
+  }
+  .pros img {
+    width: 120px;
+  }
+
+  /* Navigation Adjustments */
+  .navbar-brand {
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 10px;
+  }
+
+  /* Padding and Margins */
+  .section {
+    padding: 20px 10px;
+  }
+  .hero {
+    margin-top: 50px;
+  }
+
+  /* Carousel Adjustments */
+  .carousel-item {
+    width: 100%;
+  }
+
+  /* Footer Simplification */
+  .footer .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer .social-item {
+    padding: 10px;
+  }
+}
+
+/* Tablet Styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* Adjust Typography */
+  .hero h1 {
+    font-size: 48px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* Adjust Button Sizes */
+  .btn {
+    width: 150px;
+    height: 42px;
+    font-size: 13px;
+  }
+
+  /* Stacking Layouts */
+  .pros .col-md-3 {
+    width: 50%;
+  }
+
+  /* Image Resizing */
+  .hero img {
+    width: 90%;
+  }
+  .pros img {
+    width: 130px;
+  }
+
+  /* Padding and Margins */
+  .section {
+    padding: 30px 15px;
+  }
+  .hero {
+    margin-top: 100px;
+  }
+
+  /* Carousel Adjustments */
+  .carousel-item {
+    width: 50%;
+  }
+}
+
+/*----------------------------------------------------*/
+
 /* Header / Hero Styles */
 
 .header {
